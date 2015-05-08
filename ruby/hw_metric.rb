@@ -1,13 +1,12 @@
 puts "Height/Weight US/Canada converter"
-puts "Are you from the US or Canada?"
+puts "Will you be traveling to the US or Canada?"
 from = gets.chomp.upcase
 while from != "CANADA" && from != "US"
   puts "That is not a valid country. Please try again."
-  puts "Are you from the US or Canada?"
+  puts "Will you be traveling to the US or Canada?"
   from = gets.chomp.upcase
-  if
-  # from != "CANADA" &&
-  from == "US"
+end
+  if from == "US"
   puts "What is your height in inches?"
   height_us = gets.chomp.to_i
   height = height_us * 2.54
@@ -15,7 +14,6 @@ while from != "CANADA" && from != "US"
   weight_us = gets.chomp.to_i
   weight = weight_us * 0.453592
   puts "When you're in Canada, you weigh #{weight.to_i} kilograms and you stand at #{height.to_i} centimeters."
-  # elsif from != "US" &&
   elsif from == "CANADA"
   puts "What is your height in centimeters?"
   height_eh = gets.chomp.to_i
@@ -23,10 +21,10 @@ while from != "CANADA" && from != "US"
   puts "what is your weight in kilograms?"
   weight_eh = gets.chomp.to_i
   weight = weight_eh * 2.20462
-  puts "When you're in the US, you weigh #{weight.to_i} pounds and you stand at #{height.to_i} inches."
-  break
-  end
+  puts "When you're in the United States, you weigh #{weight.to_i} pounds and you stand at #{height.to_i} inches."
 end
+
+
 
   
 
