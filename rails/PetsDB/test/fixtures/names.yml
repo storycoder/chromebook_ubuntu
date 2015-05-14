@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  Owner: MyString
+  name: MyString
+  pet_num: 1
+  address: MyText
+  pet_club_id: 1
+
+two:
+  Owner: MyString
+  name: MyString
+  pet_num: 1
+  address: MyText
+  pet_club_id: 1
