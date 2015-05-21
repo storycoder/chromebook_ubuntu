@@ -1,0 +1,41 @@
+p {
+  color: red;
+  font-family: arial;
+  font-size: 50px
+}
+
+#word {
+  color: purple;
+}
+  
+div p {
+  color: blue;
+  font-size: 20px;
+  font-family: serif;
+}
+
+* {
+  color: yellow;
+  font-family: italic;
+}
+
+.class_test {
+  color:yellow;
+  font-size: 30px;
+  
+}
+
+#id_test {
+  color: green;
+  font-size: 50px;
+}
+
+.hover_test:hover {
+  font-size: 50px;
+  text-decoration: none;
+}
+
+a:visted {
+  background: black;
+  color: pink;
+}
