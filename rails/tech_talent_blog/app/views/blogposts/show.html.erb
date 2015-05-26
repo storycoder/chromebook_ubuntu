@@ -1,19 +1,39 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @blogpost.title %>
-</p>
+<div class = "container-fluid">
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <%= @blogpost.title %>
+  </div>
+  <div class="panel-body">
+    <p>by <%=@blogpost.author%></p>
+    <p><%= @blogpost.blog_entry%></p>
+  </div>
+  <div class="panel-footer">
+    <%= link_to 'Edit Post', edit_blogpost_path(@blogpost), class: "btn btn-warning" %>
+  </div>
+</div> #  <<< this div created the primary panel
+<div class="panel panel-success">
+  <div class="panel-heading">
+    Leave a Comment
+  </div>
+  <div class="panel-body">
+    <%= render 'comments/form' %>
+  </div>
+</div>
 
-<p>
-  <strong>Author:</strong>
-  <%= @blogpost.author %>
-</p>
-
-<p>
-  <strong>Blog entry:</strong>
-  <%= @blogpost.blog_entry %>
-</p>
-
-<%= link_to 'Edit', edit_blogpost_path(@blogpost) %> |
-<%= link_to 'Back', blogposts_path %>
+<div class="panel panel-default">
+  <div class="panel-header">
+    <h4>Comments</h4>
+  </div>
+  <%= @blogpost.comments.each do |comment|%>
+  <div class="panel-body"
+    <p><strong><%=comment.author %></strong> said:</p>
+    <p><%= comment.comment_entry %></p>
+  </div>
+  <% end %>
+</div>
+<div>
+  <%= link_to 'Back to Index', blogposts_path, class: "btn btn-primary" %>
+</div>
+</div>

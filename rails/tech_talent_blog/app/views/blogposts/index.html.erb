@@ -24,24 +24,56 @@
 #   </tbody>
 # </table>
 
-<br>
+
+# <h1>Listing Blog Posts</h1>
+
+# <div class="row">
+#   <% @blogposts.each do |blogpost| %>
+#     <div class="col-md-6">
+#       <div class="panel panel-default">
+#         <div class="panel-heading">
+#           <%= blogpost.title %><!-- add a space -->
+#         </div><!-- panel-heading -->
+#         <div class="panel-body">
+#           by <%= @blogpost.author %><br />
+#           <p><%= @blogpost.blog_entry %></p>
+#         </div><!-- panel-body -->
+#         <div class="panel-footer">
+#           <%= link_to 'Show', blogpost, class: "btn btn-primary" %>
+#           <%= link_to 'Edit', edit_blogpost_path(blogpost), class: "btn btn-warning" %>
+#           <%= link_to 'Destroy', blogpost, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+#         </div><!-- panel-footer -->
+#       </div><!-- panel-default -->
+#     </div><!-- col-md-6 -->
+#   <% end %>
+# </div>
+
+# <br>
+
+# <%= link_to 'New Blogpost', new_blogpost_path %>
+
+<h1>Current Blog Posts</h1>
+
 <div class="row">
-<% @blogposts.each do |blogpost| %>
-<div class="col-md-6">
-  <div class="panel panel-default">
-  <%=blogpost.title %>
-  </div>
-  <div class="panel-body">
-  by <%= @blogpost.author %><br />
-  <p><%= @blogpost.blog_entry %></p>
-  </div>
-  <div class="panel-footer">
-  <%= link_to 'Show', blogpost, class: "btn btn-primary" %>
-  <%= link_to 'Edit', edit_blogpost_path(blogpost), class: "btn btn-warning" %>
-  <%= link_to 'Destroy', blogpost, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-  </div>
+  <% @blogposts.each do |blogpost| %>
+    <div class="col-md-6">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <%= link_to blogpost.title, blog_post %> <!-- add a space -->
+        </div><!-- panel-heading -->
+        <div class="panel-body">
+          by <%= @blogpost.author %><br />
+          <p><%= @blogpost.blog_entry[0..250] %>...[<%= link_to "READ MORE", blogpost %>]</p>
+        </div><!-- panel-body -->
+        <div class="panel-footer">
+          <%= link_to 'Edit', edit_blogpost_path(blogpost), class: "btn btn-warning" %>
+          <%= link_to 'Destroy', blogpost, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        </div><!-- panel-footer -->
+      </div><!-- panel-default -->
+    </div><!-- col-md-6 -->
+  <% end %>
 </div>
-</div>
-<% end %>
-</div>
+
+<br>
+
 <%= link_to 'New Blogpost', new_blogpost_path %>
