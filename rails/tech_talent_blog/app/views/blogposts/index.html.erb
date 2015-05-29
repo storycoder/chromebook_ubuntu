@@ -1,57 +1,3 @@
-<h1>Listing Blog Posts</h1>
-
-# <table>
-  # <thead>
-  #   <tr>
-  #     <th>Title</th>
-  #     <th>Author</th>
-  #     <th>Blog entry</th>
-  #     <th colspan="3"></th>
-  #   </tr>
-  # </thead>
-
-  # <tbody>
-  #   <% @blogposts.each do |blogpost| %>
-  #     <tr>
-  #       <td><%= blogpost.title %></td>
-  #       <td><%= blogpost.author %></td>
-  #       <td><%= blogpost.blog_entry %></td>
-#         <td><%= link_to 'Show', blogpost %></td>
-#         <td><%= link_to 'Edit', edit_blogpost_path(blogpost) %></td>
-#         <td><%= link_to 'Destroy', blogpost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-#       </tr>
-#     <% end %>
-#   </tbody>
-# </table>
-
-
-# <h1>Listing Blog Posts</h1>
-
-# <div class="row">
-#   <% @blogposts.each do |blogpost| %>
-#     <div class="col-md-6">
-#       <div class="panel panel-default">
-#         <div class="panel-heading">
-#           <%= blogpost.title %><!-- add a space -->
-#         </div><!-- panel-heading -->
-#         <div class="panel-body">
-#           by <%= @blogpost.author %><br />
-#           <p><%= @blogpost.blog_entry %></p>
-#         </div><!-- panel-body -->
-#         <div class="panel-footer">
-#           <%= link_to 'Show', blogpost, class: "btn btn-primary" %>
-#           <%= link_to 'Edit', edit_blogpost_path(blogpost), class: "btn btn-warning" %>
-#           <%= link_to 'Destroy', blogpost, method: :delete, data: { confirm: 'Are you sure?'}, class: "btn btn-danger" %>
-#         </div><!-- panel-footer -->
-#       </div><!-- panel-default -->
-#     </div><!-- col-md-6 -->
-#   <% end %>
-# </div>
-
-# <br>
-
-# <%= link_to 'New Blogpost', new_blogpost_path %>
-
 <h1>Current Blog Posts</h1>
 
 <div class="row">
@@ -63,6 +9,7 @@
         </div><!-- panel-heading -->
         <div class="panel-body">
           by <%= @blogpost.author %><br />
+          <p><span class "posted-at">posted at: <%= blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p'%></span></p>
           <p><%= @blogpost.blog_entry[0..250] %>...[<%= link_to "READ MORE", blogpost %>]</p>
         </div><!-- panel-body -->
         <div class="panel-footer">

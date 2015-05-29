@@ -6,7 +6,7 @@
     <%= @blogpost.title %>
   </div>
   <div class="panel-body">
-    <p>by <%=@blogpost.author%></p>
+    <p>by <strong><%=@blogpost.author%>g</strong><span class="posted-at">posted at: <%= blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></span></p>
     <p><%= @blogpost.blog_entry%></p>
   </div>
   <div class="panel-footer">
@@ -30,7 +30,7 @@
   <div class="panel-body"
     <p><strong><%=comment.author %></strong> said:</p>
     <p><%= comment.comment_entry %></p>
-  </div>
+    <p><span class="posted-at"><%= comment.created_at.strftime('%m/%d/%Y' at '%H:%M:%S')%></span></p>
   <% end %>
 </div>
 <div>
