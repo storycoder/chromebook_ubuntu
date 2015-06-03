@@ -11,7 +11,6 @@
 </div>
 <div>
     <p><%= link_to 'Edit', edit_blog_post_path(@blog_post) %></p>
-    <%= link_to 'Back', blog_posts_path %>
   </div>
 <div class="panel panel-success">
   <div class="panel-heading">
@@ -19,6 +18,9 @@
   </div>
   <div class="panel-body">
     <%= render 'comments/form' %>
+  </div>
+  <div>
+    <%= link_to 'Back', blog_posts_path %>
   </div>
   
   
