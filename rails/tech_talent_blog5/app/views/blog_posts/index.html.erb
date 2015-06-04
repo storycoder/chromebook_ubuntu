@@ -8,13 +8,24 @@
         <%= link_to blog_post.title, blog_post %>
         </div>
         <div class="panel-body">
-        by <%= blog_post.author %>
+        by <%= link_to blog_post.user.username %>
         <span class="posted_at">posted at <%= blog_post.created_at.strftime('%m-%d-%Y at %I:%M%p') %>
         <p><%= blog_post.blog_entry[0..250]%>...[<%= link_to "READ MORE", blog_post %>]</p>
         </div>
-        <div class="panel-footer">
-        <%= link_to 'Edit', edit_blog_post_path(blog_post), class: "btn btn-warning" %>
-        <%= link_to 'Destroy', blog_post, method: :delete, data: {confirm: 'Are you sure?'}, class: "btn btn-danger" %>
+        <div class="panel-footer index-blog-footer">
+          <%= if current_user.id == blog_post.user.id %>
+          <%= link_to edit_blog_post_path(blog_post), do %>
+          <button class="btn btn-warning"><i class="fa fa-pencil"></i>Edit</button>
+          <%end%>
+          <%= link_to blog_post, method: :delete, data: {confirm: 'Are you sure?'} do %>
+          <button class: "btn btn-danger"><i class="fa fa-trash-o"</i>Delete</button>
+          <%end%>
+          <%else%>
+          <div class="ptop5">
+            <%link_to user_posts_path(id: blog_post.user.id) do %>
+            <i class="fa fa-eye"></i>Read More Posts by <%= blog_post.user.username %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
