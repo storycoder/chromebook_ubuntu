@@ -9,6 +9,7 @@
         </div>
         <div class="panel-body">
         by <%= blog_post.author %>
+        <span class="posted_at">posted at <%= blog_post.created_at.strftime('%m-%d-%Y at %I:%M%p') %>
         <p><%= blog_post.blog_entry[0..250]%>...[<%= link_to "READ MORE", blog_post %>]</p>
         </div>
         <div class="panel-footer">
