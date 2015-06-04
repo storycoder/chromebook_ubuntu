@@ -5,7 +5,7 @@
     <%= @blog_post.title %>
   </div>
   <div class="panel-body">
-    <p>by <%= @blog_post.author %></p>
+    by <strong><%= @blog_post.author %></strong><span class="posted-at"> posted at: <%= @blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %></span><br />
     <p><%= @blog_post.blog_entry %></p>
   </div>
 </div>
@@ -22,7 +22,13 @@
   <div>
     <%= link_to 'Back', blog_posts_path %>
   </div>
-  
+  <% @blog_post.comments.each do |comment| %>
+    <div class="panel-body">
+      <p><strong><%= comment.author %></strong></p>
+      <p><%= comment.comment_entry %></p>
+      <p><span class="posted-at"> <%= comment.created_at.strftime('%m-%d-%Y at %I:%M%p') %></span></p>
+    </div>
+  <% end %>
   
   
 
