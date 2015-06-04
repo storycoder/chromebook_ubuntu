@@ -8,13 +8,13 @@
         <%= link_to blog_post.title, blog_post %>
         </div>
         <div class="panel-body">
-        by <%= link_to blog_post.user.username %>
-        <span class="posted_at">posted at <%= blog_post.created_at.strftime('%m-%d-%Y at %I:%M%p') %>
-        <p><%= blog_post.blog_entry[0..250]%>...[<%= link_to "READ MORE", blog_post %>]</p>
+        by <%= link_to blog_post.user.username %><br />
+        <span class="posted_at">posted at: <%= blog_post.created_at.strftime('%m/%d/%Y at %I:%M%p') %>
+        <p><%= blog_post.blog_entry[0..250] %>...[<%= link_to "READ MORE", blog_post %>]</p>
         </div>
         <div class="panel-footer index-blog-footer">
-          <%= if current_user.id == blog_post.user.id %>
-          <%= link_to edit_blog_post_path(blog_post), do %>
+          <% if current_user.id == blog_post.user.id %>
+          <%= link_to edit_blog_post_path(blog_post) do %>
           <button class="btn btn-warning"><i class="fa fa-pencil"></i>Edit</button>
           <%end%>
           <%= link_to blog_post, method: :delete, data: {confirm: 'Are you sure?'} do %>
@@ -26,12 +26,10 @@
             <i class="fa fa-eye"></i>Read More Posts by <%= blog_post.user.username %>
             <% end %>
           </div>
+          <% end %>
+          
         </div>
       </div>
     </div>
     <% end %>
 </div>
-
-<br>
-
-<%= link_to 'New Blog post', new_blog_post_path %>
